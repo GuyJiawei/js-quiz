@@ -7,3 +7,52 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.timer {
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 24px;
+    color: aqua;
+}
+
+body {
+    background-image: url(/assets/images/background.jpg);
+    background-position-x: center;
+    background-size: cover;
+}
+
+.start-page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 200px;
+}
+
+main h2 {
+    color: aqua;
+    font-size: 36px;
+    text-align: center;
+    padding: 25px;
+}
+
+main p {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 50px;
+}
+
+#start-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 500px;
+    right: 46%;
+    font-size: 24px;
+    padding: 10px;
+}
