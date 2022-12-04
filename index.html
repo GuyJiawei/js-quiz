@@ -20,7 +20,8 @@
     </header>
 
     <main>
-        <div class="container">
+        <container class="start-container">
+
             <section class="start-page" id="start-page">
                 <h2>
                     Coding Quiz Challenge
@@ -30,8 +31,39 @@
                 </p>
                 <button class="button" id="start-button"><strong>Start Quiz</strong></button>
             </section>
-        </div>
+
+        </container>
+
+        <container class="quiz-container" id="quiz-container">
+
+            <section id="options">
+                <h2 id="question"></h2>
+                <ul>
+                    <li><button class="option-button" id="option-A"></button></li>
+                    <li><button class="option-button" id="option-B"></button></li>
+                    <li><button class="option-button" id="option-C"></button></li>
+                    <li><button class="option-button" id="option-D"></button></li>
+                </ul>
+            </section>
+
+            <section id="answer">
+                <p id="result"></p>
+            </section>
+
+            <section class="score-page" id="score-page">
+                <div>
+                    <h2>High Scores</h2>
+                    <ol class="high-scores-list"></ol>
+                    <button class= "play-again" id="play-again">Play Again</button>
+                    <button class="clear-scores" id="clear-scores">Clear High Scores</button>
+                    <div></div>
+                </div>                
+            </section>
+
+        </container>
     </main>
+
     <script src="/assets/script.js"></script>
+    
 </body>
 </html>
