@@ -56,3 +56,27 @@ main p {
     font-size: 24px;
     padding: 10px;
 }
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-container ul li {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 36px;
+    padding: 10px;
+}
+
+.quiz-container ul li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: aqua;
+    padding-left: 20px;
+}
