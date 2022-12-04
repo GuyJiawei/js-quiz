@@ -76,7 +76,7 @@ start.addEventListener("click", function() {
 
 function startGame () {
     startPage.style.display ="none";
-    quizPage.style.display = "block";
+    quizPage.style.display = "grid";
     quizQuestion = 0
     setTime();
     renderQuestion(quizQuestion);
