@@ -20,6 +20,7 @@ body {
     background-image: url(/assets/images/background.jpg);
     background-position-x: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .start-page {
@@ -79,4 +80,12 @@ main p {
     cursor: pointer;
     color: aqua;
     padding-left: 20px;
+}
+
+.score-page {
+    display: none;
+}
+
+.answer {
+    display: none;
 }
