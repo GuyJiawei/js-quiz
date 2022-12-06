@@ -49,7 +49,7 @@ var allQuestions = [
         answer: "All of the above"
     },
     {
-        question: "4 - String values must be enclosed within _______ whan being assigned to variables.",
+        question: "4 - String values must be enclosed within _______ when being assigned to variables.",
         options: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
         answer: "Quotes"
     },

@@ -1,5 +1,5 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .header {
@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 200px;
+    padding: 100px;
 }
 
 main h2 {
@@ -63,6 +63,10 @@ main p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.quiz-container h2 {
+    font-size: 24px;
 }
 
 .quiz-container ul li {
