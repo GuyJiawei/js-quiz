@@ -90,9 +90,7 @@ btnArea.addEventListener("click", function(event){
             result.textContent = "Wrong! Minus 10 Seconds";
     }
     quizQuestionIndex++;
-    console.log(quizQuestionIndex)
-    
-
+ 
     if(quizQuestionIndex >= 5)
     {
         displaySaveScore();
