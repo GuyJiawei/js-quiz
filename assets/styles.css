@@ -82,10 +82,6 @@ main p {
     padding-left: 20px;
 }
 
-.score-page {
-    display: none;
-}
-
-.answer {
+.hide {
     display: none;
 }

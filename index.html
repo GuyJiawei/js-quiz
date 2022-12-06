@@ -38,7 +38,7 @@
 
             <section id="quiz">
                 <h2 id="questions"></h2>
-                <ul>
+                <ul id= "btnArea">
                     <li><button class="option-button" id="option-A"></button></li>
                     <li><button class="option-button" id="option-B"></button></li>
                     <li><button class="option-button" id="option-C"></button></li>
@@ -46,15 +46,17 @@
                 </ul>
             </section>
 
-            <section class="answer" id="answer">
+            <section class="hide" id="answer">
                 <p id="result"></p>
             </section>
 
-            <section class="score-page" id="score-page">
+            <section class="hide" id="submit-page">
                 <div>
                     <h2>High Scores</h2>
-                    <ol class="high-scores-list"></ol>
-                        
+                    <ol class= "hide" id="high-scores-list"></ol>
+                        <input type="text" id="initials" placeholder="Submit Initials">
+
+                        <button class= "submit" id="submit">Submit</button>
                         <button class= "play-again" id="play-again">Play Again</button>
                         <button class="clear-scores" id="clear-scores">Clear High Scores</button>
                     <div></div>
