@@ -4,6 +4,8 @@ var startPage = document.querySelector("#start-page");
 var instructions = document.querySelector("#instructions");
 var start = document.querySelector("#start-button");
 
+var btnArea = document.querySelector("#btnArea");
+
 var quizPage = document.querySelector("#quiz");
 var questions = document.querySelector("#questions");
 
@@ -12,29 +14,23 @@ var optionButtonB = document.querySelector("#option-B");
 var optionButtonC = document.querySelector("#option-C");
 var optionButtonD = document.querySelector("#option-D");
 
-var answer = document.querySelector("#answer");
 var result = document.querySelector("#result");
+
+var submitPage = document.querySelector("#submit-page");
 
 var pastHighScores = document.querySelector("#high-scores-list");
 
 var playAgain = document.querySelector("#play-again");
 var clearHighScores = document.querySelector("#clear-scores");
 
-var quizQuestionIndex = 0
-
 var timeEl = document.querySelector(".timer");
+let timerInterval;
 var secondsLeft = 75
 
 function setTime() {
-    var timerInterval = setInterval(function() {
+        timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
-
-        if(secondsLeft <= 0) {
-            // Stops execution of action at set interval
-            clearInterval(timerInterval);
-        }
-
     }, 1000);
 }
 
@@ -76,8 +72,10 @@ function startGame () {
     startPage.style.display ="none";
     quizPage.style.display = "grid";
     setTime();
-    renderQuestion(quizQuestion);
+    renderQuestion();
 }
+
+var quizQuestionIndex = 0
 
 function renderQuestion() {
     questions.textContent = allQuestions[quizQuestionIndex].question;
@@ -87,9 +85,43 @@ function renderQuestion() {
     optionButtonD.textContent = allQuestions[quizQuestionIndex].options[3];
 }
 
-function checkAnswer() {
+btnArea.addEventListener("click", function(event){
+    if(event.target.textContent === allQuestions[quizQuestionIndex].answer){
+        displayAnswer()
+    } else if (event.target.textContent !== allQuestions[quizQuestionIndex].answer){
+            secondsLeft-=10;
+            showAnswer.style.display = "block";
+            result.textContent = "Wrong! Minus 10 Seconds";
+    }
 
+    quizQuestionIndex++;
+    renderQuestion();
+    
+    if(quizQuestionIndex == 5)
+    {
+        displaySaveScore();
+    }
+});
+
+var showAnswer = document.querySelector("#answer")
+
+function displayAnswer(){
+    showAnswer.style.display = "block";
+    result.textContent = "Correct! " + allQuestions[quizQuestionIndex].answer;
 }
 
-function endGame
+function displaySaveScore() {
+    clearInterval(timerInterval);
+    showAnswer.style.display = "none";
+    submitPage.style.display = "block";
+}
 
+// function endGame
+
+
+//delegating functio to create event listener
+//
+
+// playAgain - reset timer and question index and rund startGame()
+
+//localStorage.clear
