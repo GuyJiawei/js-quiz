@@ -120,7 +120,7 @@ var clearHighScores = document.querySelector("#clear-scores");
 var initialEl = document.querySelector("#initials");
 
 
-submitBtn.addEventListener("click", saveScore());
+submitBtn.addEventListener("click", saveScore);
 
 function saveScore(event){
     event.preventDefault();
@@ -130,10 +130,15 @@ function saveScore(event){
         return;
     }
 
-
-
+    localStorage.setItem(initialEl.value, secondsLeft);
+    console.log(initialEl.value)
+    console.log(secondsLeft)
 }
-// function endGame
+
+function renderScore(){
+    localStorage.getItem(initialEl.value);
+    localStorage.getItem(secondsLeft);
+}
 
 
 //delegating functio to create event listener
