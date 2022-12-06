@@ -20,9 +20,6 @@ var submitPage = document.querySelector("#submit-page");
 
 var pastHighScores = document.querySelector("#high-scores-list");
 
-var playAgain = document.querySelector("#play-again");
-var clearHighScores = document.querySelector("#clear-scores");
-
 var timeEl = document.querySelector(".timer");
 let timerInterval;
 var secondsLeft = 75
@@ -34,7 +31,6 @@ function setTime() {
     }, 1000);
 }
 
- 
 
 var allQuestions = [
     {
@@ -75,8 +71,6 @@ function startGame () {
     renderQuestion();
 }
 
-var quizQuestionIndex = 0
-
 function renderQuestion() {
     questions.textContent = allQuestions[quizQuestionIndex].question;
     optionButtonA.textContent = allQuestions[quizQuestionIndex].options[0];
@@ -84,6 +78,8 @@ function renderQuestion() {
     optionButtonC.textContent = allQuestions[quizQuestionIndex].options[2];
     optionButtonD.textContent = allQuestions[quizQuestionIndex].options[3];
 }
+
+var quizQuestionIndex = 0
 
 btnArea.addEventListener("click", function(event){
     if(event.target.textContent === allQuestions[quizQuestionIndex].answer){
@@ -93,14 +89,16 @@ btnArea.addEventListener("click", function(event){
             showAnswer.style.display = "block";
             result.textContent = "Wrong! Minus 10 Seconds";
     }
-
     quizQuestionIndex++;
-    renderQuestion();
+    console.log(quizQuestionIndex)
     
-    if(quizQuestionIndex == 5)
+
+    if(quizQuestionIndex >= 5)
     {
         displaySaveScore();
+        return;
     }
+    renderQuestion();
 });
 
 var showAnswer = document.querySelector("#answer")
@@ -112,10 +110,31 @@ function displayAnswer(){
 
 function displaySaveScore() {
     clearInterval(timerInterval);
+
     showAnswer.style.display = "none";
+    quizPage.style.display = "none";
     submitPage.style.display = "block";
 }
 
+var submitBtn = document.querySelector("#submit");
+var playAgain = document.querySelector("#play-again");
+var clearHighScores = document.querySelector("#clear-scores");
+var initialEl = document.querySelector("#initials");
+
+
+submitBtn.addEventListener("click", saveScore());
+
+function saveScore(event){
+    event.preventDefault();
+
+    if(!initialEl.value){
+        alert("Please enter your initials");
+        return;
+    }
+
+
+
+}
 // function endGame
 
 
