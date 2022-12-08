@@ -7,6 +7,9 @@
     <title>JavaScript Quiz</title>
     <link rel="stylesheet" href="/assets/reset.css">
     <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,14 +55,19 @@
 
             <section class="hide" id="submit-page">
                 <div>
-                    <h2>High Scores</h2>
-                    <ol class= "hide" id="high-scores-list"></ol>
+                    <h2 class= "hide" id="high-scores-list">High Scores</h2>
+                    <!-- <ol class= "hide" id="high-scores-list"></ol> -->
                         <input type="text" id="initials" placeholder="Submit Initials">
 
                         <button class= "submit" id="submit">Submit</button>
                         <button class= "play-again" id="play-again">Play Again</button>
                         <button class="clear-scores" id="clear-scores">Clear High Scores</button>
-                        <ol class="hi-scorers" id="hi-scorers"></ol>
+                        <ol class="hi-scorers" id="hi-scorers">
+                            <li id="initialsScores"></li>
+                            <li id="initialsScores"></li>
+                            <li id="initialsScores"></li>
+                            <li id="initialsScores"></li>
+                        </ol>
                     <div></div>
                 </div>                
             </section>
