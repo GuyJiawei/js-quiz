@@ -1,4 +1,5 @@
 var highScores = document.querySelector("#high-scores")
+var timer = document.querySelector("#timer")
 
 var startPage = document.querySelector("#start-page");
 var instructions = document.querySelector("#instructions");
@@ -20,12 +21,13 @@ var submitPage = document.querySelector("#submit-page");
 var clearBtn = document.querySelector("#clear-scores");
 var scoreList = document.querySelector("#hi-scorers");
 
+var playAgainBtn = document.querySelector("#play-again");
 
 var pastHighScores = document.querySelector("#high-scores-list");
 
 var timeEl = document.querySelector(".timer");
 let timerInterval;
-var secondsLeft = 75
+var secondsLeft = 75;
 
 var savedScores = JSON.parse(localStorage.getItem("scoreInitials")) || [];
 
@@ -84,7 +86,7 @@ function renderQuestion() {
     optionButtonD.textContent = allQuestions[quizQuestionIndex].options[3];
 }
 
-var quizQuestionIndex = 0
+var quizQuestionIndex = 0;
 
 btnArea.addEventListener("click", function(event){
     if(event.target.textContent === allQuestions[quizQuestionIndex].answer){
@@ -93,9 +95,8 @@ btnArea.addEventListener("click", function(event){
             secondsLeft-=10;
             showAnswer.style.display = "block";
             result.textContent = "Wrong! Minus 10 Seconds";
-    }
+    } 
     quizQuestionIndex++;
- 
     if(quizQuestionIndex >= 5)
     {
         displaySaveScore();
@@ -104,20 +105,22 @@ btnArea.addEventListener("click", function(event){
     renderQuestion();
 });
 
-var showAnswer = document.querySelector("#answer")
+var showAnswer = document.querySelector("#answer");
 
 function displayAnswer(){
     showAnswer.style.display = "block";
     result.textContent = "Correct! " + allQuestions[quizQuestionIndex].answer;
-}
+};
 
 function displaySaveScore() {
     clearInterval(timerInterval);
-
+    timer.style.display = "none";
     showAnswer.style.display = "none";
     quizPage.style.display = "none";
     submitPage.style.display = "block";
-}
+    pastHighScores.style.display = "block"
+    pastHighScores.textContent = "Congratulations you got " + secondsLeft + "!";
+};
 
 var submitBtn = document.querySelector("#submit");
 var playAgain = document.querySelector("#play-again");
@@ -129,7 +132,6 @@ submitBtn.addEventListener("click", saveScore);
 
 function saveScore(event){
     event.preventDefault();
-
     if(!initialEl.value){
         alert("Please enter your initials");
         return;
@@ -141,22 +143,27 @@ function saveScore(event){
     savedScores.push(scoreInitials)
     localStorage.setItem("scoreInitials", JSON.stringify(savedScores));
     renderScore()
-}
+    document.getElementById("submit").disabled = true;
+};
 
 function renderScore(){
     var lastScore = JSON.parse(localStorage.getItem("scoreInitials"))
     for (i=0; i < lastScore.length; i++){
         var hiScorers = document.querySelector("#hi-scorers");
         var scorer = document.createElement("li");
-        scorer.textContent = "Initials: " + lastScore[i].initials + "Score: " + lastScore[i].score;
+        scorer.textContent = "Initials: " + lastScore[i].initials + " " + "Score: " + lastScore[i].score;
         hiScorers.append(scorer);
     }
-}
+};
 
-clearBtn.addEventListener("click", clearScores);
-
-function clearScores() {
+clearBtn.addEventListener("click", function(event) {
+    event.preventDefault();
     localStorage.clear();
     savedScores = [];
     scoreList.style.display = "none";
-}
+});
+
+playAgainBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    window.location.reload();
+});
