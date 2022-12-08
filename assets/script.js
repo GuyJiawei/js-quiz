@@ -17,12 +17,15 @@ var optionButtonD = document.querySelector("#option-D");
 var result = document.querySelector("#result");
 
 var submitPage = document.querySelector("#submit-page");
+var clearBtn = document.querySelector("#clear-scores");
 
 var pastHighScores = document.querySelector("#high-scores-list");
 
 var timeEl = document.querySelector(".timer");
 let timerInterval;
 var secondsLeft = 75
+
+var savedScores = JSON.parse(localStorage.getItem("scoreInitials")) || [];
 
 function setTime() {
         timerInterval = setInterval(function() {
@@ -133,20 +136,26 @@ function saveScore(event){
         initials: initialEl.value,
         score: secondsLeft
     };
-
-    localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
+    savedScores.push(scoreInitials)
+    localStorage.setItem("scoreInitials", JSON.stringify(savedScores));
     renderScore()
 }
 
 function renderScore(){
-    var lastScore = localStorage.getItem("scoreInitials", JSON.parse(String));
-    // JSON.parse(localStorage.getItem("scoreInitials"));
-    document.querySelector("#initialsScores").textContent = lastScore
+    var lastScore = JSON.parse(localStorage.getItem("scoreInitials"))
+    for (i=0; i < lastScore.length; i++){
+        var hiScorers = document.querySelector("#hi-scorers");
+        var scorer = document.createElement("li");
+        scorer.textContent = "Initials: " + lastScore[i].initials + "Score: " + lastScore[i].score;
+        hiScorers.append(scorer);
+    }
 }
+
+clearBtn.addEventListener("click", clearScores);
 
 function clearScores() {
     localStorage.clear();
-
+    scorer.display = "none";
 }
 
 //delegating functio to create event listener
