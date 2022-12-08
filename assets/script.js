@@ -49,7 +49,7 @@ var allQuestions = [
         answer: "All of the above"
     },
     {
-        question: "4 - String values must be enclosed within _______ when being assigned to variables.",
+        question: "4 - String values must be enclosed within ______ when being assigned to variables.",
         options: ["Commas", "Curly Brackets", "Quotes", "Parentheses"],
         answer: "Quotes"
     },
@@ -129,17 +129,25 @@ function saveScore(event){
         alert("Please enter your initials");
         return;
     }
+    var scoreInitials = {
+        initials: initialEl.value,
+        score: secondsLeft
+    };
 
-    localStorage.setItem(initialEl.value, secondsLeft);
-    console.log(initialEl.value)
-    console.log(secondsLeft)
+    localStorage.setItem("scoreInitials", JSON.stringify(scoreInitials));
+    renderScore()
 }
 
 function renderScore(){
-    localStorage.getItem(initialEl.value);
-    localStorage.getItem(secondsLeft);
+    var lastScore = localStorage.getItem("scoreInitials", JSON.parse(String));
+    // JSON.parse(localStorage.getItem("scoreInitials"));
+    document.querySelector("#initialsScores").textContent = lastScore
 }
 
+function clearScores() {
+    localStorage.clear();
+
+}
 
 //delegating functio to create event listener
 //
