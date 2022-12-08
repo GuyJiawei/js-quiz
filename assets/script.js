@@ -15,7 +15,14 @@ var optionButtonB = document.querySelector("#option-B");
 var optionButtonC = document.querySelector("#option-C");
 var optionButtonD = document.querySelector("#option-D");
 
+var showAnswer = document.querySelector("#answer");
+
 var result = document.querySelector("#result");
+
+var submitBtn = document.querySelector("#submit");
+var playAgain = document.querySelector("#play-again");
+var clearHighScores = document.querySelector("#clear-scores");
+var initialEl = document.querySelector("#initials");
 
 var submitPage = document.querySelector("#submit-page");
 var clearBtn = document.querySelector("#clear-scores");
@@ -29,15 +36,9 @@ var timeEl = document.querySelector(".timer");
 let timerInterval;
 var secondsLeft = 75;
 
+var quizQuestionIndex = 0;
+
 var savedScores = JSON.parse(localStorage.getItem("scoreInitials")) || [];
-
-function setTime() {
-        timerInterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft;
-    }, 1000);
-}
-
 
 var allQuestions = [
     {
@@ -71,6 +72,13 @@ start.addEventListener("click", function() {
     startGame();
 });
 
+function setTime() {
+    timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+}, 1000);
+}
+
 function startGame () {
     startPage.style.display ="none";
     quizPage.style.display = "grid";
@@ -86,8 +94,6 @@ function renderQuestion() {
     optionButtonC.textContent = allQuestions[quizQuestionIndex].options[2];
     optionButtonD.textContent = allQuestions[quizQuestionIndex].options[3];
 }
-
-var quizQuestionIndex = 0;
 
 btnArea.addEventListener("click", function(event){
     if(event.target.textContent === allQuestions[quizQuestionIndex].answer){
@@ -106,8 +112,6 @@ btnArea.addEventListener("click", function(event){
     renderQuestion();
 });
 
-var showAnswer = document.querySelector("#answer");
-
 function displayAnswer(){
     showAnswer.style.display = "block";
     result.textContent = "Correct! " + allQuestions[quizQuestionIndex].answer;
@@ -122,12 +126,6 @@ function displaySaveScore() {
     pastHighScores.style.display = "block"
     pastHighScores.textContent = "Congratulations you got " + secondsLeft + "!";
 };
-
-var submitBtn = document.querySelector("#submit");
-var playAgain = document.querySelector("#play-again");
-var clearHighScores = document.querySelector("#clear-scores");
-var initialEl = document.querySelector("#initials");
-
 
 submitBtn.addEventListener("click", saveScore);
 
@@ -178,4 +176,3 @@ playAgainBtn.addEventListener("click", function(event) {
     event.preventDefault();
     window.location.reload();
 });
-
