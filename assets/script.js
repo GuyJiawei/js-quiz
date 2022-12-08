@@ -74,6 +74,7 @@ start.addEventListener("click", function() {
 function startGame () {
     startPage.style.display ="none";
     quizPage.style.display = "grid";
+    highScores.style.display = "none"
     setTime();
     renderQuestion();
 }
@@ -156,6 +157,16 @@ function renderScore(){
     }
 };
 
+highScores.addEventListener("click", function(event) {
+    startPage.style.display = "none";
+    clearBtn.style.display = "none";
+    submitBtn.style.display = "none";
+    playAgainBtn.style.display = "flex";
+    initialEl.style.display = "none";
+    submitPage.style.display = "flex";
+    renderScore();
+});
+
 clearBtn.addEventListener("click", function(event) {
     event.preventDefault();
     localStorage.clear();
@@ -167,3 +178,4 @@ playAgainBtn.addEventListener("click", function(event) {
     event.preventDefault();
     window.location.reload();
 });
+
