@@ -18,6 +18,8 @@ var result = document.querySelector("#result");
 
 var submitPage = document.querySelector("#submit-page");
 var clearBtn = document.querySelector("#clear-scores");
+var scoreList = document.querySelector("#hi-scorers");
+
 
 var pastHighScores = document.querySelector("#high-scores-list");
 
@@ -155,12 +157,6 @@ clearBtn.addEventListener("click", clearScores);
 
 function clearScores() {
     localStorage.clear();
-    scorer.display = "none";
+    savedScores = [];
+    scoreList.style.display = "none";
 }
-
-//delegating functio to create event listener
-//
-
-// playAgain - reset timer and question index and rund startGame()
-
-//localStorage.clear

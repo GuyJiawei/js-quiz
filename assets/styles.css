@@ -89,3 +89,10 @@ main p {
 .hide {
     display: none;
 }
+
+.hi-scorers li {
+    display: block;
+    padding: 10px;
+    font-size: 24px;
+    color: aqua;
+}
