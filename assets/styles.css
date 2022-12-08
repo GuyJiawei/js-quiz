@@ -70,7 +70,7 @@ main p {
 }
 
 .quiz-container ul li {
-    display: block;
+    display: flexbox;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -88,4 +88,16 @@ main p {
 
 .hide {
     display: none;
+}
+
+.hi-scorers li {
+    display: block;
+    padding: 10px;
+    font-size: 24px;
+    color: aqua;
+}
+
+.timer {
+    display: block;
+    text-align: right;
 }
