@@ -124,6 +124,10 @@ btnArea.addEventListener("click", function(event){
     {
         displaySaveScore();
         return;
+    } else if(secondsLeft <= 0)
+    {
+        displaySaveScore();
+        return; 
     }
     renderQuestion();
 });
