@@ -1,12 +1,5 @@
 # JavaScript Quiz Challenge
 
-## Table Of Contents
-*[General Info](#general-info)
-*[Website URL](#URL)
-*[Screenshots](#screnshots)
-*[Code](#code)
-*[Status](#status)
-
 ## General Info
 Weekely challenge was to create a quiz that will pose questions on JavaScript coding language and present multiple choice answers. A 75 second timer will start when the user begins the quiz and time will be deducted (10 second) when  they answer a question wrong. Scores will be calculated from time remaining at the end of the quiz.
 

@@ -95,6 +95,11 @@ function setTime() {
     timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
+    if(secondsLeft <= 0)
+    {
+        displaySaveScore();
+        return; 
+    }
 }, 1000);
 }
 
@@ -124,7 +129,8 @@ btnArea.addEventListener("click", function(event){
     {
         displaySaveScore();
         return;
-    } else if(secondsLeft <= 0)
+    } 
+    if(secondsLeft <= 0)
     {
         displaySaveScore();
         return; 
