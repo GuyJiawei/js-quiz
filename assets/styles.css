@@ -17,7 +17,7 @@
 }
 
 body {
-    background-image: url(./images/background.jpg);
+    background-image: linear-gradient(red, white);
     background-position-x: center;
     background-size: cover;
     background-repeat: no-repeat;
