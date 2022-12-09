@@ -82,7 +82,8 @@ function setTime() {
 function startGame () {
     startPage.style.display ="none";
     quizPage.style.display = "grid";
-    highScores.style.display = "none"
+    highScores.style.display = "none";
+    btnArea.style.display = "block";
     setTime();
     renderQuestion();
 }
