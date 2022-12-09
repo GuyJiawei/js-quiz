@@ -30,6 +30,11 @@ body {
     padding: 100px;
 }
 
+main {
+    text-align: center;
+    justify-content: center;
+}
+
 main h2 {
     color: aqua;
     font-size: 36px;
@@ -76,6 +81,10 @@ main p {
     flex-wrap: wrap;
     font-size: 36px;
     padding: 10px;
+    border: solid black;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: black;
 }
 
 .quiz-container ul li button {
